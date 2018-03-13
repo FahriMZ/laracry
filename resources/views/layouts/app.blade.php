@@ -16,9 +16,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    {{-- Icon --}}
-    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">    
     
     @yield('css')
 </head>
