@@ -8,10 +8,19 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{asset('img/icon/favicon-flask.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('img/icon/favicon-flask.ico')}}" type="image/x-icon">
+
+    <title>{{ config('app.name', 'Laracry') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- Icon --}}
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">    
+    
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -61,11 +70,19 @@
         </nav>
 
         <main class="py-4">
+            @if(session('error'))
+            <script type="text/javascript">
+                alert("{{ session('error')['title'] }}, {{ session('error')['description'] }}");
+            </script>
+            @endif
+
             @yield('content')
         </main>
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    @yield('js')
 </body>
 </html>

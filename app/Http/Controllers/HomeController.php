@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function ulah()
+    {
+        return back()->with('error', ['title' => 'hey', 'description' => 'The feature is not avaiable']);
+    }
 }

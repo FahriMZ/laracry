@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -12,9 +13,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Link per menu
+Route::group(['prefix' => 'ulah'], function() {
+	Route::get('/', array('as' => 'ulah', 'uses' => 'HomeController@ulah'));
+});
